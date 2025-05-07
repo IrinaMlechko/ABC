@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="css/puzzle.css" rel="stylesheet" />
+  <link href="css/common.css" rel="stylesheet" type="text/css">
+  <script defer src="js/puzzle.js"></script>
+  <script src="js/score.js"></script>
+  <title>Пазл-буква</title>
+</head>
+<body>
+
+<a href="#" class="back-button" id="puzzleBackBtn" title="Назад">
+  <img src="pic/back.png" alt="Назад">
+</a>
+
+<svg id="letter" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs></defs>
+  <text class="copy-piece" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">А</text>
+</svg>
+
+<audio id="pop-sound" preload="auto" src="sound/pop.mp3"></audio>
+<audio id="glue-sound" preload="auto" src="sound/glue.mp3"></audio>
+</body>
+</html>

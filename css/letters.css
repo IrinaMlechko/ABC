@@ -1,0 +1,41 @@
+body {
+    background: linear-gradient(135deg, #A0E7E5, #B4F8C8, #FBE7C6);
+    font-family: 'Fredoka', sans-serif;
+    text-align: center;
+    padding: 40px;
+    color: #333;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.letters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.letter {
+    background-color: #fff8dc;
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #5c4b2a;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.letter:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.letter:active {
+    transform: scale(0.95);
+}

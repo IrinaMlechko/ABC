@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type=button value='тест' onclick='test()'>
+<br>
+<input type=button value='тест lockget' onclick='testLockGet()'>
+<br>
+<input type=button value='тест update' onclick='testUpdate()'>
+<br>
+<input type=button value='тест update' onclick='testInit()'>
+
+<script>
+
+  function test() {
+
+    const ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
+
+
+      fetch(ajaxHandlerScript, {
+          method: 'post',
+          body: new URLSearchParams({
+              f: 'READ',
+              n: 'MLECHKA_ABC_TABLEOFRESULTS'
+          })
+      })
+            .then( response => response.json() )
+            .then( data => { console.log(data); } )
+            .catch( error => { console.error(error); } );
+  }
+
+  function testLockGet() {
+
+      const ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
+
+      fetch(ajaxHandlerScript, {
+          method: 'post',
+          body: new URLSearchParams({
+              f: 'LOCKGET',
+              n: 'MLECHKA_ABC_TABLEOFRESULTS',
+              p: 123
+          })
+      })
+          .then( response => response.json() )
+          .then( data => { console.log(data); } )
+          .catch( error => { console.error(error); } );
+  }
+
+  function testUpdate() {
+
+      const ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
+
+      const initData = {};
+      'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'.toUpperCase().split('').forEach(letter => {
+          initData[letter] = {};
+      });
+
+      fetch(ajaxHandlerScript, {
+          method: 'post',
+          body: new URLSearchParams({
+              f: 'UPDATE',
+              n: 'MLECHKA_ABC_TABLEOFRESULTS',
+              p: 123,
+              v: JSON.stringify(initData)
+          })
+      })
+          .then( response => response.json() )
+          .then( data => { console.log(data); } )
+          .catch( error => { console.error(error); } );
+  }
+
+  function testInit() {
+
+      const ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
+
+      fetch(ajaxHandlerScript, {
+          method: 'post',
+          body: new URLSearchParams({
+              f: 'UPDATE',
+              n: 'MLECHKA_ABC_TABLEOFRESULTS',
+              p: 123,
+              v: ''
+          })
+      })
+          .then( response => response.json() )
+          .then( data => { console.log(data); } )
+          .catch( error => { console.error(error); } );
+  }
+</script>
+
+</body>
+</html>
