@@ -71,7 +71,7 @@ function createPieces(letter, bbox) {
         text.textContent = letter;
 
         text.addEventListener('mousedown', dragStart, false);
-        text.addEventListener('touchstart', dragStart, false);
+        text.addEventListener('touchstart', dragStart, { passive: false });
         pieceSvg.appendChild(text);
         document.body.appendChild(pieceSvg);
 
@@ -121,8 +121,8 @@ function dragStart(e) {
 
     document.body.addEventListener('mousemove', dragMove, false);
     document.body.addEventListener('mouseup', dragEnd, false);
-    document.body.addEventListener('touchend', dragEnd, false);
-    document.body.addEventListener('touchmove', dragMove, false);
+    document.body.addEventListener('touchend', dragEnd, { passive: false });
+    document.body.addEventListener('touchmove', dragMove, { passive: false });
 }
 
 function dragMove(e) {
