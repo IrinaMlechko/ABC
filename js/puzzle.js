@@ -109,6 +109,7 @@ function getElementPosition(el) {
 }
 
 function dragStart(e) {
+    console.log('touch/mouse start', e.type);
     if (isComplete) return;
     e.preventDefault();
     const {x, y} = getEventCoords(e);
@@ -126,6 +127,7 @@ function dragStart(e) {
 }
 
 function dragMove(e) {
+    console.log('touch/mouse move', e.type);
     if (!draggedImage || isComplete) return;
     e.preventDefault();
     const {x, y} = getEventCoords(e);
@@ -134,6 +136,7 @@ function dragMove(e) {
 }
 
 function dragEnd(e) {
+    console.log('touch/mouse end', e.type);
     if (!draggedImage || isComplete) return;
     e.preventDefault();
     const index = originalPositions.findIndex(pos => pos.element === draggedImage);
