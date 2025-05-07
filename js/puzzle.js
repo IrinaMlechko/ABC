@@ -127,6 +127,7 @@ function dragStart(e) {
 
 function dragMove(e) {
     if (!draggedImage || isComplete) return;
+    e.preventDefault();
     const {x, y} = getEventCoords(e);
     draggedImage.style.left = `${x - shiftX}px`;
     draggedImage.style.top = `${y - shiftY}px`;
