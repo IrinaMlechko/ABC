@@ -103,7 +103,6 @@ function showProgressPanel(data) {
 }
 
 let startX = 0;
-let currentX = 0;
 let isSwiping = false;
 const swipeThreshold = 50;
 
@@ -114,17 +113,17 @@ progressPanel.addEventListener('touchstart', (e) => {
     }
 });
 
-progressPanel.addEventListener('touchmove', (e) => {
+progressPanel.addEventListener('touchend', (e) => {
     if (!isSwiping) return;
-    currentX = e.touches[0].clientX;
-});
 
-progressPanel.addEventListener('touchend', () => {
-    if (!isSwiping) return;
-    const deltaX = currentX - startX;
+    const endX = e.changedTouches[0].clientX;
+    const deltaX = endX - startX;
+
     if (deltaX > swipeThreshold) {
         progressPanel.classList.remove('visible');
     }
+
     isSwiping = false;
 });
+
 
