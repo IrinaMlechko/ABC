@@ -122,29 +122,9 @@ progressPanel.addEventListener('touchmove', (e) => {
 progressPanel.addEventListener('touchend', () => {
     if (!isSwiping) return;
     const deltaX = currentX - startX;
-    if (deltaX < -swipeThreshold) {
+    if (deltaX > swipeThreshold) {
         progressPanel.classList.remove('visible');
     }
     isSwiping = false;
 });
 
-document.body.addEventListener('touchstart', (e) => {
-    if (e.touches.length === 1 && e.touches[0].clientX < 30 && !progressPanel.classList.contains('visible')) {
-        startX = e.touches[0].clientX;
-        isSwiping = true;
-    }
-});
-
-document.body.addEventListener('touchmove', (e) => {
-    if (!isSwiping) return;
-    currentX = e.touches[0].clientX;
-});
-
-document.body.addEventListener('touchend', () => {
-    if (!isSwiping) return;
-    const deltaX = currentX - startX;
-    if (deltaX > swipeThreshold && !progressPanel.classList.contains('visible')) {
-        showProgressBtn.click();
-    }
-    isSwiping = false;
-});
